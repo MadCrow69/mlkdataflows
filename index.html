@@ -6,7 +6,7 @@
     <title>⚡ Diego Antunes | Especialista em IA, Estratégia Digital & Soluções Inteligentes</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -23,6 +23,8 @@
             --text-gray: #b8bcc8;
             --gradient-primary: linear-gradient(135deg, #00ffaa, #8a2be2);
             --gradient-bg: linear-gradient(135deg, #0a0f1c, #1a1f35);
+            --card-bg: rgba(26, 31, 53, 0.8);
+            --border-glow: rgba(0, 255, 170, 0.3);
         }
         
         body {
@@ -36,10 +38,10 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
-        /* Animated Background */
+        /* Animated Background with Tech Pattern */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -48,6 +50,16 @@
             height: 100%;
             z-index: -1;
             background: var(--gradient-bg);
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(0,255,170,0.1)"/><line x1="2" y1="2" x2="18" y2="2" stroke="rgba(0,255,170,0.05)" stroke-width="0.5"/><line x1="2" y1="2" x2="2" y2="18" stroke="rgba(0,255,170,0.05)" stroke-width="0.5"/><circle cx="18" cy="18" r="0.8" fill="rgba(138,43,226,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none"><defs><pattern id="hexagon" width="30" height="26" patternUnits="userSpaceOnUse"><polygon points="15,1 28,8 28,22 15,29 2,22 2,8" fill="none" stroke="rgba(0,255,170,0.03)" stroke-width="0.5"/></pattern></defs><rect width="200" height="200" fill="url(%23hexagon)"/></svg>');
+            background-size: 300px 300px, 150px 150px;
+            animation: bgMove 30s linear infinite;
+        }
+        
+        @keyframes bgMove {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 100% 100%, -100% 100%; }
         }
         
         .bg-animation::before {
@@ -57,9 +69,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 170, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(0, 255, 170, 0.05) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 170, 0.05) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
         }
         
@@ -68,7 +81,7 @@
             50% { transform: translateY(-20px); }
         }
         
-        /* Header/Hero Section */
+        /* Header/Hero Section with Neural Network Background */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -76,19 +89,51 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 100px 0;
+            padding: 80px 0;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,255,170,0.08)" stroke-width="1"/></pattern><pattern id="dots" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="2" fill="rgba(138,43,226,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/><rect width="1200" height="600" fill="url(%23dots)"/><g stroke="rgba(0,255,170,0.05)" stroke-width="1" fill="none"><path d="M100,100 Q200,50 300,100 T500,100"/><path d="M150,200 Q250,150 350,200 T550,200"/><path d="M200,300 Q300,250 400,300 T600,300"/><circle cx="100" cy="100" r="4" fill="rgba(0,255,170,0.2)"/><circle cx="300" cy="100" r="3" fill="rgba(138,43,226,0.2)"/><circle cx="500" cy="100" r="4" fill="rgba(0,255,170,0.2)"/><circle cx="150" cy="200" r="3" fill="rgba(138,43,226,0.2)"/><circle cx="350" cy="200" r="4" fill="rgba(0,255,170,0.2)"/><circle cx="550" cy="200" r="3" fill="rgba(138,43,226,0.2)"/></g></svg>'),
+                linear-gradient(135deg, rgba(10,15,28,0.8), rgba(26,31,53,0.9));
+            background-size: cover, cover;
+            background-position: center, center;
+            background-blend-mode: overlay;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23glow)"><circle cx="100" cy="100" r="3" fill="rgba(0,255,170,0.6)"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/></circle><circle cx="300" cy="80" r="2" fill="rgba(138,43,226,0.6)"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle><circle cx="500" cy="120" r="4" fill="rgba(0,255,170,0.4)"><animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/></circle><circle cx="700" cy="90" r="2" fill="rgba(138,43,226,0.5)"><animate attributeName="opacity" values="1;0.4;1" dur="3.5s" repeatCount="indefinite"/></circle><circle cx="200" cy="200" r="3" fill="rgba(0,255,170,0.5)"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.5s" repeatCount="indefinite"/></circle></g></svg>');
+            background-size: cover;
+            opacity: 0.7;
+            animation: pulseGlow 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .hero-content h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Inter', sans-serif;
             font-weight: 900;
+            font-size: clamp(2rem, 6vw, 4rem);
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             animation: glow 3s ease-in-out infinite alternate;
+            line-height: 1.2;
         }
         
         @keyframes glow {
@@ -96,18 +141,51 @@
             to { filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.4)); }
         }
         
-        .hero-content p {
-            font-size: 1.3rem;
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
             color: var(--text-gray);
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 30px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 1px solid var(--border-glow);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--border-glow);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 40px;
@@ -119,11 +197,17 @@
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            min-width: 200px;
+            justify-content: center;
         }
         
         .btn-primary {
@@ -147,16 +231,69 @@
             color: var(--primary-dark);
         }
         
-        /* Section Styles */
+        /* Contact Bar */
+        .contact-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp {
+            background: #25D366;
+        }
+        
+        .linkedin {
+            background: #0077B5;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Section Styles with Tech Backgrounds */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
         }
         
+        #about {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none"><defs><pattern id="circuit-board" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="60" height="60" fill="none"/><path d="M10,10 L50,10 L50,50 L10,50 Z" fill="none" stroke="rgba(0,255,170,0.03)" stroke-width="1"/><circle cx="10" cy="10" r="2" fill="rgba(0,255,170,0.05)"/><circle cx="50" cy="50" r="1.5" fill="rgba(138,43,226,0.04)"/><path d="M10,30 L30,30 L30,10" fill="none" stroke="rgba(0,255,170,0.02)" stroke-width="0.5"/></pattern></defs><rect width="800" height="400" fill="url(%23circuit-board)"/></svg>');
+            background-size: 200px 200px;
+        }
+        
+        #expertise {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none"><defs><pattern id="data-flow" width="100" height="50" patternUnits="userSpaceOnUse"><path d="M0,25 Q25,10 50,25 T100,25" fill="none" stroke="rgba(138,43,226,0.04)" stroke-width="1"/><circle cx="0" cy="25" r="2" fill="rgba(138,43,226,0.06)"/><circle cx="50" cy="25" r="1" fill="rgba(0,255,170,0.04)"/><circle cx="100" cy="25" r="2" fill="rgba(138,43,226,0.06)"/></pattern></defs><rect width="600" height="300" fill="url(%23data-flow)"/></svg>');
+            background-size: 300px 150px;
+        }
+        
+        #assistants {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none"><defs><pattern id="neural" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="8" fill="none" stroke="rgba(0,255,170,0.03)" stroke-width="1"/><circle cx="60" cy="60" r="6" fill="none" stroke="rgba(138,43,226,0.03)" stroke-width="1"/><path d="M20,20 L60,60" stroke="rgba(0,255,170,0.02)" stroke-width="0.5"/><circle cx="20" cy="60" r="4" fill="rgba(0,255,170,0.04)"/><circle cx="60" cy="20" r="5" fill="rgba(138,43,226,0.04)"/><path d="M20,60 L60,20" stroke="rgba(138,43,226,0.02)" stroke-width="0.5"/></pattern></defs><rect width="400" height="400" fill="url(%23neural)"/></svg>');
+            background-size: 160px 160px;
+        }
+        
         .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             text-align: center;
             margin-bottom: 50px;
             background: var(--gradient-primary);
@@ -167,15 +304,16 @@
         
         /* About Section */
         .about-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
         
         .about-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 25px;
             color: var(--text-gray);
+            font-weight: 400;
         }
         
         .highlight {
@@ -184,28 +322,66 @@
         }
         
         .mini-slogan {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: var(--accent-purple);
             font-style: italic;
             margin-top: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 170, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
         
         /* Expertise Cards */
         .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 50px;
         }
         
         .expertise-card {
-            background: rgba(26, 31, 53, 0.8);
-            padding: 40px 30px;
+            background: var(--card-bg);
+            padding: 35px 25px;
             border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 255, 170, 0.1);
+            border: 1px solid var(--border-glow);
             position: relative;
             overflow: hidden;
         }
@@ -238,16 +414,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
         
         .expertise-card h3 {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--text-light);
@@ -256,18 +427,19 @@
         .expertise-card p {
             color: var(--text-gray);
             font-size: 0.95rem;
+            font-weight: 400;
         }
         
         /* Assistants Grid */
         .assistants-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 20px;
             margin-top: 50px;
         }
         
         .assistant-card {
-            background: rgba(26, 31, 53, 0.6);
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 15px;
             border: 1px solid rgba(138, 43, 226, 0.3);
@@ -282,7 +454,8 @@
         }
         
         .assistant-card h4 {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
             color: var(--accent-purple);
             margin-bottom: 15px;
             font-size: 1.1rem;
@@ -292,6 +465,7 @@
             color: var(--text-gray);
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 400;
             transition: color 0.3s ease;
             word-break: break-all;
         }
@@ -300,19 +474,42 @@
             color: var(--accent-neon);
         }
         
-        /* CTA Section */
+        /* CTA Section with Binary Background */
         .cta-section {
-            background: rgba(26, 31, 53, 0.8);
+            background: var(--card-bg);
             text-align: center;
-            padding: 80px 0;
+            padding: 60px 30px;
             margin: 50px 0;
             border-radius: 30px;
-            border: 2px solid rgba(0, 255, 170, 0.2);
+            border: 2px solid var(--border-glow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none"><text x="10" y="20" font-family="monospace" font-size="8" fill="rgba(0,255,170,0.1)">1010110001</text><text x="10" y="35" font-family="monospace" font-size="8" fill="rgba(138,43,226,0.08)">0110100110</text><text x="10" y="50" font-family="monospace" font-size="8" fill="rgba(0,255,170,0.1)">1100101001</text><text x="10" y="65" font-family="monospace" font-size="8" fill="rgba(138,43,226,0.08)">0101110010</text><text x="10" y="80" font-family="monospace" font-size="8" fill="rgba(0,255,170,0.1)">1010110001</text><text x="150" y="20" font-family="monospace" font-size="8" fill="rgba(138,43,226,0.08)">1100101001</text><text x="150" y="35" font-family="monospace" font-size="8" fill="rgba(0,255,170,0.1)">0101110010</text><text x="150" y="50" font-family="monospace" font-size="8" fill="rgba(138,43,226,0.08)">1010110001</text><text x="150" y="65" font-family="monospace" font-size="8" fill="rgba(0,255,170,0.1)">0110100110</text><text x="150" y="80" font-family="monospace" font-size="8" fill="rgba(138,43,226,0.08)">1100101001</text></svg>');
+            background-size: 400px 200px;
+            background-repeat: repeat;
+            opacity: 0.3;
+            animation: binaryFlow 15s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes binaryFlow {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-50px); }
         }
         
         .cta-section h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             margin-bottom: 40px;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -320,35 +517,90 @@
             background-clip: text;
         }
         
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+                min-height: 90vh;
+            }
+            
+            .tech-icons {
+                gap: 15px;
+            }
+            
+            .tech-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
             
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
             .btn {
-                width: 280px;
+                width: 100%;
+                max-width: 300px;
+                padding: 18px 25px;
             }
             
             .expertise-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .assistants-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
             section {
                 padding: 60px 0;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .contact-bar {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .contact-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+                margin: 30px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .assistants-grid {
+                gap: 12px;
+            }
+            
+            .assistant-card {
+                padding: 20px;
+            }
+            
+            .expertise-card {
+                padding: 30px 20px;
             }
         }
         
@@ -363,20 +615,60 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 255, 170, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-neon);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div class="bg-animation"></div>
+    
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <a href="https://wa.me/5541984175512" target="_blank" class="contact-btn whatsapp" title="WhatsApp: (41) 98417-5512">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/diego-ozorio-antunes/" target="_blank" class="contact-btn linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>⚡ Diego Antunes</h1>
-                <p>Especialista em Inteligência Artificial aplicada a negócios, conteúdo e inovação digital.</p>
+                <p class="hero-subtitle">Consultor de Processos e Dados especializado em Inteligência Artificial aplicada a negócios, conteúdo e inovação digital.</p>
+                
+                <div class="tech-icons">
+                    <div class="tech-icon">🤖</div>
+                    <div class="tech-icon">⚡</div>
+                    <div class="tech-icon">🚀</div>
+                    <div class="tech-icon">💻</div>
+                    <div class="tech-icon">📊</div>
+                </div>
+                
                 <div class="cta-buttons">
-                    <a href="#assistants" class="btn btn-primary">Explorar Projetos de IA</a>
-                    <a href="#cta" class="btn btn-outline">Criar seu Assistente</a>
+                    <a href="#assistants" class="btn btn-primary">
+                        <i class="fas fa-robot"></i>
+                        Explorar Projetos de IA
+                    </a>
+                    <a href="#cta" class="btn btn-outline">
+                        <i class="fas fa-comments"></i>
+                        Criar seu Assistente
+                    </a>
                 </div>
             </div>
         </div>
@@ -387,9 +679,32 @@
         <div class="container">
             <h2 class="section-title">Sobre Mim</h2>
             <div class="about-content">
-                <p>Sou especialista em IA e consultoria digital, desenvolvendo soluções práticas que unem tecnologia, estratégia e experiência real de mercado.</p>
-                <p>Especializado na criação de <span class="highlight">assistentes inteligentes personalizados</span> para áreas como legislação, investimentos, espiritualidade, APIs e branding pessoal.</p>
+                <p>Sou <span class="highlight">Consultor de Processos e Dados na Mlk DataFlow</span>, especialista em IA e automação de processos, desenvolvendo soluções práticas que unem tecnologia, estratégia e experiência real de mercado.</p>
+                
+                <p>Meu foco está em <span class="highlight">transformar processos complexos em soluções inteligentes e acionáveis</span>, ajudando empresas a converter documentações extensas, regras de negócio e fluxos operacionais em experiências automatizadas e eficientes com o apoio da inteligência artificial.</p>
+                
+                <p>Especializado na criação de <span class="highlight">assistentes inteligentes personalizados</span> para áreas como legislação, investimentos, espiritualidade, APIs e branding pessoal, sempre com foco em automação que reduz custos, melhora a experiência do usuário e aumenta a eficiência.</p>
+                
                 <div class="mini-slogan">"Transformo conhecimento em soluções que funcionam."</div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Projetos Entregues</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">13</span>
+                        <span class="stat-label">Assistentes IA Criados</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Suporte Dedicado</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -397,27 +712,37 @@
     <!-- Expertise Section -->
     <section id="expertise" class="fade-in">
         <div class="container">
-            <h2 class="section-title">O que eu faço</h2>
+            <h2 class="section-title">Expertise & Soluções</h2>
             <div class="expertise-grid">
                 <div class="expertise-card">
                     <div class="expertise-icon">🤖</div>
-                    <h3>Criação de Assistentes de IA Personalizados</h3>
-                    <p>Desenvolvimento de agentes para demandas jurídicas, empresariais, espirituais e de produtividade.</p>
+                    <h3>Assistentes de IA Personalizados</h3>
+                    <p>Desenvolvimento de agentes conversacionais com IA e NLP integrados a sistemas corporativos para demandas jurídicas, empresariais, espirituais e de produtividade.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚡</div>
+                    <h3>Automação com Microsoft Power Platform</h3>
+                    <p>Automação de processos com Microsoft Power Platform, Microsoft 365, Jira e APIs para criar fluxos inteligentes e integrações que aumentam eficiência.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">📊</div>
+                    <h3>Dashboards Interativos & Analytics</h3>
+                    <p>Criação de dashboards interativos e sistemas de análise de dados que facilitam a tomada de decisões estratégicas baseadas em dados.</p>
                 </div>
                 <div class="expertise-card">
                     <div class="expertise-icon">🚀</div>
-                    <h3>Estratégia Digital e Automação</h3>
-                    <p>Consultoria prática em APIs, fluxos inteligentes e integrações para aumentar eficiência.</p>
+                    <h3>Consultoria & Otimização Digital</h3>
+                    <p>Consultoria prática em posicionamento estratégico no LinkedIn, branding pessoal e otimização de perfis profissionais.</p>
                 </div>
                 <div class="expertise-card">
-                    <div class="expertise-icon">📈</div>
-                    <h3>Otimização de Perfis e Branding Pessoal</h3>
-                    <p>Posicionamento estratégico no LinkedIn e redes profissionais.</p>
+                    <div class="expertise-icon">🏗️</div>
+                    <h3>Configuração de Portais Jira</h3>
+                    <p>Implantação de sistemas de chamados multilinguísticos personalizados com fluxos, automações e personalizações específicas.</p>
                 </div>
                 <div class="expertise-card">
                     <div class="expertise-icon">🎓</div>
                     <h3>Educação e Treinamentos em IA</h3>
-                    <p>Conteúdo acessível e mentorias práticas para dominar o uso da IA.</p>
+                    <p>Conteúdo acessível e mentorias práticas para dominar o uso da IA no ambiente corporativo e pessoal.</p>
                 </div>
             </div>
         </div>
@@ -426,58 +751,58 @@
     <!-- Assistants Section -->
     <section id="assistants" class="fade-in">
         <div class="container">
-            <h2 class="section-title">Conheça alguns assistentes criados</h2>
+            <h2 class="section-title">Portfólio de Assistentes IA</h2>
             <div class="assistants-grid">
                 <div class="assistant-card">
-                    <h4>CDC – Código de Defesa do Consumidor</h4>
+                    <h4>🏛️ CDC – Código de Defesa do Consumidor</h4>
                     <a href="https://chatgpt.com/g/g-68c8b6f26bec81918c3b485fa0c59fe8-cdc-codigo-de-defesa-do-consumidor-lei-no-8-078" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Devocional Café com Deus Pai</h4>
+                    <h4>🙏 Devocional Café com Deus Pai</h4>
                     <a href="https://chatgpt.com/g/g-68c0182e79008191b3584a34cbbb694e-devocional-cafe-com-deus-pai" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Legislação de Drones – Brasil</h4>
+                    <h4>🚁 Legislação de Drones – Brasil</h4>
                     <a href="https://chatgpt.com/g/g-68bb22c181288191aea69b5e722e965e-legislacao-de-drones-brasil" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>VEO-3 – Gerador de Prompts</h4>
+                    <h4>🎨 VEO-3 – Gerador de Prompts</h4>
                     <a href="https://chatgpt.com/g/g-68b731b7c5948191bea525df7a1b1051-veo-3-assistente-gerador-de-prompts" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Lei do Inquilinato – Brasil</h4>
+                    <h4>🏠 Lei do Inquilinato – Brasil</h4>
                     <a href="https://chatgpt.com/g/g-688f7529e25081919e17e442f36bf1ed-lei-do-inquilinato-lei-8-245-91-brasil?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Consultor PSA/SMEG Peugeot Citroën DS Opel</h4>
+                    <h4>🚗 Consultor PSA/SMEG Peugeot Citroën DS Opel</h4>
                     <a href="https://chatgpt.com/g/g-687008ae50a48191bad0825ca010b93b-consultor-psa-smeg-peugeot-citroen-ds-e-opel?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Engenheiro de Prompt IA</h4>
+                    <h4>⚙️ Engenheiro de Prompt IA</h4>
                     <a href="https://chatgpt.com/g/g-6867da51e3908191aadcd45d1652a7e7-engenheiro-de-prompt-ia?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>LinkedPro – Otimizador de Perfil Brasil</h4>
+                    <h4>💼 LinkedPro – Otimizador de Perfil Brasil</h4>
                     <a href="https://chatgpt.com/g/g-6861be2c91fc8191975f2c254761e817-linkedpro-brasil-otimizador-de-perfil?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Consultor de Investimentos</h4>
+                    <h4>💰 Consultor de Investimentos</h4>
                     <a href="https://chatgpt.com/g/g-68522b7dfe4c8191821410928b5e3260-consultor-investimentos?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Especialista PSOffice API</h4>
+                    <h4>🔧 Especialista PSOffice API</h4>
                     <a href="https://chatgpt.com/g/g-68431d7730cc81918c697564fcf0f251-especialista-psoffice-api?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Palavras de Ana Suy</h4>
+                    <h4>💬 Palavras de Ana Suy</h4>
                     <a href="https://chatgpt.com/g/g-6839a4ac7ce8819183d2dce49b44f920-palavras-de-ana-suy?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>K8 Fintech – Auxílio com APIs</h4>
+                    <h4>🏦 K8 Fintech – Auxílio com APIs</h4>
                     <a href="https://chatgpt.com/g/g-67ca2be69f5c81919052b26ec9bae00b-k8-fintech-auxilio-com-api-s?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
                 <div class="assistant-card">
-                    <h4>Currículo LK Hacker</h4>
+                    <h4>📄 Currículo LK Hacker</h4>
                     <a href="https://chatgpt.com/g/g-D0LlDJtTo-curriculo-lk-hacker?model=gpt-4o" target="_blank" class="assistant-link">Acessar Assistente</a>
                 </div>
             </div>
@@ -489,13 +814,40 @@
         <div class="container">
             <div class="cta-section">
                 <h2>Pronto para criar sua solução inteligente?</h2>
+                <p style="color: var(--text-gray); margin-bottom: 40px; font-size: 1.1rem;">Vamos transformar seus processos com IA e automação inteligente</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Solicitar um projeto personalizado</a>
-                    <a href="#" class="btn btn-outline">Falar com Diego</a>
+                    <a href="https://wa.me/5541984175512?text=Olá%20Diego!%20Gostaria%20de%20solicitar%20um%20projeto%20personalizado%20de%20IA." class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Solicitar Projeto Personalizado
+                    </a>
+                    <a href="https://www.linkedin.com/in/diego-ozorio-antunes/" target="_blank" class="btn btn-outline">
+                        <i class="fas fa-user-tie"></i>
+                        Conectar no LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Footer -->
+    <footer style="background: var(--secondary-dark); padding: 40px 0; text-align: center; border-top: 1px solid var(--border-glow);">
+        <div class="container">
+            <p style="color: var(--text-gray); margin-bottom: 20px;">
+                © 2025 Diego Antunes - Especialista em IA & Automação de Processos
+            </p>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/in/diego-ozorio-antunes/" target="_blank" style="color: var(--accent-neon); text-decoration: none; font-weight: 500;">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://wa.me/5541984175512" target="_blank" style="color: var(--accent-neon); text-decoration: none; font-weight: 500;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:diego.antunes@mlkdataflow.com.br" style="color: var(--accent-neon); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </footer>
     
     <script>
         // Scroll Animation
@@ -533,13 +885,97 @@
         // Enhanced hover effects
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('mouseover', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
+                this.style.transform = 'translateY(-3px) scale(1.02)';
             });
             
             btn.addEventListener('mouseout', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
+        
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const numericTarget = parseInt(target.replace(/\D/g, '')) || 0;
+                let current = 0;
+                const increment = numericTarget / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericTarget) {
+                        current = numericTarget;
+                        clearInterval(timer);
+                        counter.textContent = target;
+                    } else {
+                        const suffix = target.includes('+') ? '+' : target.includes('/') ? target.slice(-3) : '';
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 40);
+            });
+        }
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Add loading animation to buttons on click
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!this.href.startsWith('#')) {
+                    const icon = this.querySelector('i');
+                    const originalClass = icon.className;
+                    icon.className = 'fas fa-spinner fa-spin';
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 1000);
+                }
+            });
+        });
+        
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        
+        // Dynamic background animation
+        function createFloatingElements() {
+            const hero = document.querySelector('.hero');
+            for (let i = 0; i < 5; i++) {
+                const element = document.createElement('div');
+                element.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 100 + 50}px;
+                    height: ${Math.random() * 100 + 50}px;
+                    background: radial-gradient(circle, rgba(0,255,170,0.1), transparent);
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: float ${Math.random() * 10 + 10}s ease-in-out infinite;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                hero.appendChild(element);
+            }
+        }
+        
+        // Initialize floating elements
+        createFloatingElements();
     </script>
 </body>
 </html>
