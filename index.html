@@ -10,8 +10,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--primary-dark:#0a0f1c;--secondary-dark:#1a1f35;--accent-neon:#00ffaa;--accent-purple:#8a2be2;--text-light:#fff;--text-gray:#b8bcc8;--card-bg:rgba(26,31,53,.8);--border-glow:rgba(0,255,170,.3)}
-        body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0f1c,#1a1f35);color:var(--text-light);line-height:1.6;overflow-x:hidden}
+        body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0f1c,#1a1f35);color:var(--text-light);line-height:1.6;overflow-x:hidden;padding-top:72px}
+        /* Particle canvas */
+        #particles-bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        
+        /* Top Navigation */
+        .navbar{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;z-index:999;background:rgba(10,15,28,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-glow)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;width:100%}
+        .nav-brand{font-weight:800;letter-spacing:.5px;text-decoration:none;color:#fff}
+        .nav-links{display:flex;gap:18px;align-items:center}
+        .nav-links a{color:var(--text-gray);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:8px;transition:color .2s,background .2s}
+        .nav-links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+        .nav-links a.active{color:var(--accent-neon)}
+        .nav-links .cta-link{border:1px solid var(--border-glow);color:var(--accent-neon)}
         .contact-bar{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:1000}
         .contact-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:1.5rem;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
         .whatsapp{background:#25D366}
@@ -31,6 +43,43 @@
         .btn-outline{background:transparent;color:var(--accent-neon);border:2px solid var(--accent-neon)}
         .btn:hover{transform:translateY(-3px)}
         .btn-outline:hover{background:var(--accent-neon);color:var(--primary-dark)}
+        
+        /* Animated tech background */
+        html,body{height:100%}
+        body{position:relative}
+        body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none}
+        body::before{background:radial-gradient(1200px 800px at 10% -10%,rgba(138,43,226,.12),transparent 60%),radial-gradient(1000px 600px at 110% 10%,rgba(0,255,170,.10),transparent 60%),linear-gradient(135deg,var(--primary-dark),var(--secondary-dark));animation:moveAurora 18s ease-in-out infinite alternate;filter:saturate(1.2)}
+        body::after{background-image:repeating-linear-gradient(0deg,rgba(0,255,170,.08) 0,rgba(0,255,170,.08) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(138,43,226,.10) 0,rgba(138,43,226,.10) 1px,transparent 1px,transparent 40px),radial-gradient(2px 2px at 20% 30%,rgba(0,255,170,.18) 0,transparent 100%),radial-gradient(2px 2px at 70% 60%,rgba(138,43,226,.18) 0,transparent 100%);background-size:auto,auto,100% 100%,100% 100%;mix-blend-mode:screen;opacity:.25;animation:driftGrid 60s linear infinite}
+        
+        /* Scroll reveal */
+        .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+        
+        /* Animated gradient on hero title */
+        .hero h1{background-size:200% 200%;animation:hueShift 10s ease-in-out infinite}
+        
+        /* Floating effect on tech icons */
+        .tech-icon{animation:float 6s ease-in-out infinite}
+        .tech-icon:nth-child(2){animation-delay:.6s}
+        .tech-icon:nth-child(3){animation-delay:1.2s}
+        .tech-icon:nth-child(4){animation-delay:1.8s}
+        
+        /* Button subtle glow pulse */
+        .btn-primary{position:relative;box-shadow:0 0 0 0 rgba(0,255,170,0);animation:pulseGlow 4s ease-in-out infinite}
+        
+        /* Card neon hover already exists; add subtle base glow */
+        .stat-card,.education-card,.expertise-card,.testimonial-card{box-shadow:0 0 0 0 rgba(0,255,170,0);transition:box-shadow .3s ease,transform .3s ease}
+        .stat-card:hover,.education-card:hover,.expertise-card:hover,.testimonial-card:hover{box-shadow:0 8px 32px rgba(0,255,170,.15)}
+        
+        /* Keyframes */
+        @keyframes moveAurora{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,-2%,0) scale(1.05)}}
+        @keyframes driftGrid{0%{background-position:0 0,0 0,0 0,0 0}100%{background-position:200px 200px,200px 200px,0 0,0 0}}
+        @keyframes hueShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,255,170,0),0 0 24px rgba(0,255,170,.15)}50%{box-shadow:0 0 0 6px rgba(0,255,170,.08),0 0 36px rgba(138,43,226,.2)}}
+        
+        /* Accessibility: reduce motion */
+        @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}body::before,body::after{animation:none!important}}
         section{padding:100px 20px}
         .section-title{font-size:clamp(1.8rem,4vw,2.5rem);text-align:center;margin-bottom:60px;background:linear-gradient(135deg,#00ffaa,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
         .about-content{max-width:1000px;margin:0 auto;background:var(--card-bg);padding:50px;border-radius:20px;border:1px solid var(--border-glow)}
@@ -70,6 +119,7 @@
     </style>
 </head>
 <body>
+    <canvas id="particles-bg"></canvas>
     <div class="contact-bar">
         <a href="https://wa.me/5541984175512" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.linkedin.com/in/diego-ozorio-antunes/" target="_blank" class="contact-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
@@ -146,27 +196,7 @@
         <div class="container">
             <h2 class="section-title">Portfólio de Assistentes IA</h2>
             <div class="assistants-grid">
-                <div class="assistant-card"><div class="assistant-icon">💼</div><h4>LinkedIn Prompt Mestre</h4><p class="assistant-desc">Otimização de conteúdo LinkedIn.</p><a href="https://chatgpt.com/g/g-68df02bc6e4081919960f8f0453450e3-assistente-linkedin-prompt-mestre" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🌙</div><h4>Interpretador de Sonhos</h4><p class="assistant-desc">Análise simbólica de sonhos.</p><a href="https://chatgpt.com/g/g-68def65297c081918f7cd76b86c38c0b-interpretador-de-sonhos" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🏨</div><h4>Assistente Luggo Rebouças</h4><p class="assistant-desc">Suporte para hotelaria.</p><a href="https://chatgpt.com/g/g-68deb87d1d1c81919b516c51971eec9d-assistente-luggo-reboucas" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🤝</div><h4>Como Fazer Amigos IA</h4><p class="assistant-desc">Baseado em Dale Carnegie.</p><a href="https://chatgpt.com/g/g-68dbf1904dc0819187e46ce793395a27-como-fazer-amigos-e-influenciar-pessoas-ia" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">📊</div><h4>Bruxo do Excel</h4><p class="assistant-desc">Automações Excel avançadas.</p><a href="https://chatgpt.com/g/g-68dbb44f52788191a269f4ca827a2dcd-bruxo-do-excel-bruno-alm" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🎭</div><h4>Simulador Persona Virtual</h4><p class="assistant-desc">Testes de UX e estratégias.</p><a href="https://chatgpt.com/g/g-68d6954da8dc819196157469bfd0f3b7-simulador-persona-virtual" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🛡️</div><h4>LGPD – Lei 13.709/2018</h4><p class="assistant-desc">Proteção de Dados.</p><a href="https://chatgpt.com/g/g-68c9563ec7388191b0f91a7255f2f38f-lgpd-pergunte-tudo-sobre-a-lei-no-13-709-2018" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🏛️</div><h4>CDC</h4><p class="assistant-desc">Código de Defesa do Consumidor.</p><a href="https://chatgpt.com/g/g-68c8b6f26bec81918c3b485fa0c59fe8-cdc-codigo-de-defesa-do-consumidor-lei-no-8-078" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🙏</div><h4>Café com Deus Pai</h4><p class="assistant-desc">Conteúdos devocionais.</p><a href="https://chatgpt.com/g/g-68c0182e79008191b3584a34cbbb694e-devocional-cafe-com-deus-pai" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🚁</div><h4>Legislação de Drones</h4><p class="assistant-desc">Normas para drones Brasil.</p><a href="https://chatgpt.com/g/g-68bb22c181288191aea69b5e722e965e-legislacao-de-drones-brasil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🎨</div><h4>VEO-3 Prompts</h4><p class="assistant-desc">Gerador de prompts IA.</p><a href="https://chatgpt.com/g/g-68b731b7c5948191bea525df7a1b1051-veo-3-assistente-gerador-de-prompts" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🏠</div><h4>Lei do Inquilinato</h4><p class="assistant-desc">Direitos locatícios Brasil.</p><a href="https://chatgpt.com/g/g-688f7529e25081919e17e442f36bf1ed-lei-do-inquilinato-lei-8-245-91-brasil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🚗</div><h4>PSA/SMEG Peugeot</h4><p class="assistant-desc">Sistemas automotivos.</p><a href="https://chatgpt.com/g/g-687008ae50a48191bad0825ca010b93b-consultor-psa-smeg-peugeot-citroen-ds-e-opel" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">⚙️</div><h4>Engenheiro de Prompt</h4><p class="assistant-desc">Otimização de prompts.</p><a href="https://chatgpt.com/g/g-6867da51e3908191aadcd45d1652a7e7-engenheiro-de-prompt-ia" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">💰</div><h4>Consultor Investimentos</h4><p class="assistant-desc">Estratégias de investimento.</p><a href="https://chatgpt.com/g/g-68522b7dfe4c8191821410928b5e3260-consultor-investimentos" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🔧</div><h4>PSOffice API</h4><p class="assistant-desc">Integração APIs PSOffice.</p><a href="https://chatgpt.com/g/g-68431d7730cc81918c697564fcf0f251-especialista-psoffice-api" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">💬</div><h4>Palavras de Ana Suy</h4><p class="assistant-desc">Conteúdos motivacionais.</p><a href="https://chatgpt.com/g/g-6839a4ac7ce8819183d2dce49b44f920-palavras-de-ana-suy" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🛡️</div><h4>Loovi Seguros</h4><p class="assistant-desc">Consultoria em seguros.</p><a href="https://chatgpt.com/g/g-6835fa1178d48191bbd7e4e02d05f1f3-suelen-rocha-loovi-seguros" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">👩‍⚕️</div><h4>Ketlin Antunes PSC</h4><p class="assistant-desc">Assistente área de saúde.</p><a href="https://chatgpt.com/g/g-6833a1387420819181cddc16e1494172-ketlin-antunes-psc" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🏦</div><h4>K8 Fintech</h4><p class="assistant-desc">APIs financeiras K8.</p><a href="https://chatgpt.com/g/g-67ca2be69f5c81919052b26ec9bae00b-k8-fintech-auxilio-com-api-s" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-                <div class="assistant-card"><div class="assistant-icon">🏗️</div><h4>Reforma Tributária</h4><p class="assistant-desc">Construção civil.</p><a href="https://chatgpt.com/g/g-67f444c609808191996b757a5a2d2757-consultora-reforma-tributaria-na-construcao-civil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
+                <div class="assistant-card"><div class="assistant-icon">🤖</div><h4>Portfólio Completo</h4><p class="assistant-desc">Veja todos os Assistentes IA.</p><a href="assistentes.html" class="assistant-link">Ver Portfólio</a></div>
             </div>
         </div>
     </section>
@@ -243,6 +273,47 @@
         statsEl&&statsObs.observe(statsEl);
         document.querySelectorAll('.btn').forEach(e=>{e.addEventListener('mouseover',function(){this.style.transform='translateY(-3px) scale(1.02)'}),e.addEventListener('mouseout',function(){this.style.transform='translateY(0) scale(1)'})});
         document.querySelectorAll('.contact-btn').forEach(e=>{e.addEventListener('mouseover',function(){this.style.transform='scale(1.15)'}),e.addEventListener('mouseout',function(){this.style.transform='scale(1)'})});
+
+        // Particle System (generic)
+        function createParticleSystem(canvasId, particleColor, lineColor){
+            const canvas=document.getElementById(canvasId); if(!canvas) return;
+            const ctx=canvas.getContext('2d');
+            const section=document.body;
+            function resize(){canvas.width=section.clientWidth; canvas.height=section.clientHeight}
+            resize();
+            const particles=[]; const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const particleCount=prefersReduced?20:60; const maxDistance=prefersReduced?80:120;
+            class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-.5)*.5;this.vy=(Math.random()-.5)*.5;this.radius=Math.random()*2+1}
+              update(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width) this.vx=-this.vx; if(this.y<0||this.y>canvas.height) this.vy=-this.vy}
+              draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=particleColor; ctx.fill();}}
+            for(let i=0;i<particleCount;i++) particles.push(new Particle());
+            function connect(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x; const dy=particles[i].y-particles[j].y; const d=Math.sqrt(dx*dx+dy*dy); if(d<maxDistance){const opacity=.2*(1-d/maxDistance); ctx.beginPath(); ctx.strokeStyle=lineColor.replace('OPACITY',opacity); ctx.lineWidth=1; ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke();}}}}
+            function animate(){ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update(); p.draw()}); connect(); requestAnimationFrame(animate)}
+            animate();
+            window.addEventListener('resize',resize);
+        }
+        // init particles background
+        createParticleSystem('particles-bg','rgba(255,255,255,0.5)','rgba(255,255,255,OPACITY)');
+
+        // Remove any on-home Assistentes IA section to keep content only on dedicated page
+        (function(){
+            const headers=[...document.querySelectorAll('h2,h3')].filter(h=>/Portfólio de Assistentes IA/i.test(h.textContent));
+            headers.forEach(h=>{ const sec=h.closest('section'); if(sec) sec.remove(); });
+        })();
     </script>
+    
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Mlk DataFlow</a>
+            <nav class="nav-links">
+                <a href="index.html#about">Sobre</a>
+                <a href="index.html#expertise">Expertise</a>
+                <a href="index.html#testimonials">Depoimentos</a>
+                <a href="index.html#contracting">Contratação</a>
+                <a href="assistentes.html">Assistentes IA</a>
+                <a href="index.html#cta" class="cta-link">Contato</a>
+            </nav>
+        </div>
+    </header>
 </body>
 </html>
