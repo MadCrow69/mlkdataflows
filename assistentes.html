@@ -1,216 +1,591 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Assistentes IA da Mlk DataFlow.">
-  <title>Portfólio de Assistentes IA | Mlk DataFlow</title>
+  <meta name="description"
+    content="Portfólio de Assistentes IA da Mlk DataFlow. Agentes especializados para sua empresa.">
+  <title>Assistentes IA | Mlk DataFlow</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{--primary-dark:#0a0f1c;--secondary-dark:#1a1f35;--accent-neon:#00ffaa;--accent-purple:#8a2be2;--text-light:#fff;--text-gray:#b8bcc8;--card-bg:rgba(26,31,53,.8);--border-glow:rgba(0,255,170,.3)}
-    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0f1c,#1a1f35);color:var(--text-light);line-height:1.6;overflow-x:hidden;padding-top:72px}
-    #particles-bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    :root {
+      /* Midnight Tech Palette (Shared) */
+      --bg-primary: #030712;
+      --bg-secondary: #0B1221;
+      --surface-card: #111827;
 
-    /* Top Navigation (same as index) */
-    .navbar{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;z-index:999;background:rgba(10,15,28,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-glow)}
-    .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;width:100%}
-    .nav-brand{font-weight:800;letter-spacing:.5px;text-decoration:none;color:#fff}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:var(--text-gray);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:8px;transition:color .2s,background .2s}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.05)}
-    .nav-links a.active{color:var(--accent-neon)}
-    .nav-links .cta-link{border:1px solid var(--border-glow);color:var(--accent-neon)}
-    .nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--border-glow);background:rgba(255,255,255,.04);border-radius:10px;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
-    .nav-toggle:focus{outline:none;box-shadow:0 0 0 2px rgba(0,255,170,.25)}
-    .nav-toggle span{display:block;width:22px;height:2.5px;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease,background .2s ease;transform-origin:50% 50%}
-    .nav-toggle span+span{margin-top:5px}
-    .navbar.open .nav-toggle{background:rgba(0,255,170,.12);border-color:rgba(0,255,170,.6);box-shadow:inset 0 0 0 2px rgba(0,255,170,.15)}
-    .navbar.open .nav-toggle span{background:var(--accent-neon)}
-    @media (max-width: 900px){
-      .nav-toggle{display:inline-flex}
-      .nav-links{position:fixed;top:64px;left:0;right:0;display:none;flex-direction:column;background:rgba(10,15,28,.95);padding:12px 16px 20px;border-bottom:1px solid var(--border-glow);z-index:1001}
-      .nav-links a{padding:12px 10px}
-      .navbar.open .nav-links{display:flex}
-      .nav-links.active{display:flex}
-      .navbar.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-      .navbar.open .nav-toggle span:nth-child(2){opacity:0}
-      .navbar.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      --accent-primary: #00DC82;
+      --accent-secondary: #3B82F6;
+      --text-primary: #F3F4F6;
+      --text-secondary: #9CA3AF;
+      --text-muted: #6B7280;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 220, 130, 0.3);
+
+      --font-sans: 'Inter', sans-serif;
+      --font-display: 'Inter Tight', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    /* Animated tech background */
-    html,body{height:100%}
-    body{position:relative}
-    body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none}
-    body::before{background:radial-gradient(1200px 800px at 10% -10%,rgba(138,43,226,.12),transparent 60%),radial-gradient(1000px 600px at 110% 10%,rgba(0,255,170,.10),transparent 60%),linear-gradient(135deg,var(--primary-dark),var(--secondary-dark));animation:moveAurora 18s ease-in-out infinite alternate;filter:saturate(1.2)}
-    body::after{background-image:repeating-linear-gradient(0deg,rgba(0,255,170,.08) 0,rgba(0,255,170,.08) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(138,43,226,.10) 0,rgba(138,43,226,.10) 1px,transparent 1px,transparent 40px),radial-gradient(2px 2px at 20% 30%,rgba(0,255,170,.18) 0,transparent 100%),radial-gradient(2px 2px at 70% 60%,rgba(138,43,226,.18) 0,transparent 100%);background-size:auto,auto,100% 100%,100% 100%;mix-blend-mode:screen;opacity:.25;animation:driftGrid 60s linear infinite}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* Page title */
-    .page-hero{padding:90px 20px 30px;text-align:center}
-    .page-hero h1{font-size:clamp(2rem,5vw,3rem);background:linear-gradient(135deg,#00ffaa,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;margin-bottom:12px;background-size:200% 200%;animation:hueShift 10s ease-in-out infinite}
-    .page-hero p{color:var(--text-gray)}
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* Assistants grid */
-    .assistants-section{padding:40px 20px 100px}
-    .assistants-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:24px}
-    .assistant-card{background:var(--card-bg);padding:24px;border-radius:14px;border:1px solid var(--border-glow);transition:all .25s}
-    .assistant-card:hover{transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,255,170,.18)}
-    .assistant-icon{font-size:2rem;margin-bottom:10px}
-    .assistant-card h4{margin:6px 0;color:var(--accent-neon)}
-    .assistant-desc{color:var(--text-gray);font-size:.95rem;margin-bottom:12px}
-    .assistant-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--primary-dark);background:linear-gradient(135deg,#00ffaa,#8a2be2);padding:10px 14px;border-radius:999px;font-weight:700}
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: var(--font-display);
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
 
-    /* Keyframes + reduced motion */
-    @keyframes moveAurora{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-3%,-2%,0) scale(1.05)}}
-    @keyframes driftGrid{0%{background-position:0 0,0 0,0 0,0 0}100%{background-position:200px 200px,200px 200px,0 0,0 0}}
-    @keyframes hueShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}body::before,body::after{animation:none!important}}
+    /* Layout */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar (Simplified Match) */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    /* Page Header */
+    .page-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top center, rgba(0, 220, 130, 0.05), transparent 50%);
+    }
+
+    .page-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .page-hero p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Assistants Grid */
+    .assistants-section {
+      padding: 60px 0;
+    }
+
+    .group-title {
+      font-size: 1.5rem;
+      margin: 40px 0 24px;
+      padding-left: 16px;
+      border-left: 3px solid var(--accent-primary);
+      color: #fff;
+    }
+
+    .assistants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .assistant-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 24px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .assistant-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--text-muted);
+    }
+
+    .assistant-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .assistant-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--accent-primary);
+    }
+
+    .assistant-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .assistant-link {
+      align-self: flex-start;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #000;
+      background: var(--accent-primary);
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .assistant-link:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 768px) {
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Mobile Menu Styles (Shared) */
+    @media(max-width: 900px) {
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .nav-toggle {
+        display: block !important;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        /* Height of navbar */
+        left: 0;
+        width: 100%;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 40px 20px;
+        border-bottom: 1px solid var(--border-subtle);
+        gap: 24px;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links.active {
+        display: flex;
+        /* Override display:none */
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--border-subtle);
+      }
+    }
   </style>
 </head>
+
 <body>
-  <canvas id="particles-bg"></canvas>
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-brand">Mlk DataFlow</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav id="menu" class="nav-links">
+  <div class="bg-grid"
+    style="position: fixed; inset: 0; pointer-events: none; z-index: -1; background-image: linear-gradient(var(--border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.4; mask-image: radial-gradient(circle at center, black 40%, transparent 100%);">
+  </div>
+
+  <!-- Navbar (Identical to Index) -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">
+        <i class="fas fa-bolt" style="color: var(--accent-primary)"></i>
+        Mlk DataFlow
+      </a>
+      <div class="nav-links">
         <a href="index.html#about">Sobre</a>
         <a href="index.html#expertise">Expertise</a>
         <a href="index.html#testimonials">Depoimentos</a>
-        <a href="index.html#contracting">Contratação</a>
-        <a href="assistentes.html" class="active">Assistentes IA</a>
-        <a href="index.html#cta" class="cta-link">Contato</a>
-      </nav>
+        <a href="assistentes.html" class="active" style="color: #fff;">Assistentes IA</a>
+        <a href="https://wa.me/5541984175512" target="_blank" class="btn"
+          style="background: var(--accent-primary); color: #000; padding: 8px 16px; font-size: 0.9rem; border-radius: 4px; font-weight: 600;">
+          Contato <i class="fas fa-arrow-right" style="font-size: 0.8em; margin-left:8px;"></i>
+        </a>
+      </div>
+      <!-- Mobile Toggle -->
+      <button class="nav-toggle" aria-label="Menu"
+        style="display:none; color:white; background:none; border:none; font-size:1.5rem">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </header>
+  </nav>
 
+  <!-- Page Content -->
   <section class="page-hero">
-    <div class="container">
+    <div class="container fade-up">
+      <div class="mono-tag" style="margin-bottom: 16px; display: block;">// INTELLIGENCE_HUB</div>
       <h1>Portfólio de Assistentes IA</h1>
-      <p>Seleção de assistentes especializados. Adicione novos facilmente duplicando um cartão.</p>
+      <p>Seleção de agentes treinados para tarefas específicas. Automatize vendas, jurídico e operações com a nossa
+        tecnologia.</p>
     </div>
   </section>
 
   <section class="assistants-section">
     <div class="container">
-      <div class="assistants-grid">
-        <!-- Portfólio completo de Assistentes IA -->
-        <div class="assistant-card"><div class="assistant-icon">💼</div><h4>LinkedIn Prompt Mestre</h4><p class="assistant-desc">Otimização de conteúdo LinkedIn.</p><a href="https://chatgpt.com/g/g-68df02bc6e4081919960f8f0453450e3-assistente-linkedin-prompt-mestre" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🌙</div><h4>Interpretador de Sonhos</h4><p class="assistant-desc">Análise simbólica de sonhos.</p><a href="https://chatgpt.com/g/g-68def65297c081918f7cd76b86c38c0b-interpretador-de-sonhos" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🏨</div><h4>Assistente Luggo Rebouças</h4><p class="assistant-desc">Suporte para hotelaria.</p><a href="https://chatgpt.com/g/g-68deb87d1d1c81919b516c51971eec9d-assistente-luggo-reboucas" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🤝</div><h4>Como Fazer Amigos IA</h4><p class="assistant-desc">Baseado em Dale Carnegie.</p><a href="https://chatgpt.com/g/g-68dbf1904dc0819187e46ce793395a27-como-fazer-amigos-e-influenciar-pessoas-ia" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">📊</div><h4>Bruxo do Excel</h4><p class="assistant-desc">Automações Excel avançadas.</p><a href="https://chatgpt.com/g/g-68dbb44f52788191a269f4ca827a2dcd-bruxo-do-excel-bruno-alm" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🎭</div><h4>Simulador Persona Virtual</h4><p class="assistant-desc">Testes de UX e estratégias.</p><a href="https://chatgpt.com/g/g-68d6954da8dc819196157469bfd0f3b7-simulador-persona-virtual" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🛡️</div><h4>LGPD – Lei 13.709/2018</h4><p class="assistant-desc">Proteção de Dados.</p><a href="https://chatgpt.com/g/g-68c9563ec7388191b0f91a7255f2f38f-lgpd-pergunte-tudo-sobre-a-lei-no-13-709-2018" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🏛️</div><h4>CDC</h4><p class="assistant-desc">Código de Defesa do Consumidor.</p><a href="https://chatgpt.com/g/g-68c8b6f26bec81918c3b485fa0c59fe8-cdc-codigo-de-defesa-do-consumidor-lei-no-8-078" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🙏</div><h4>Café com Deus Pai</h4><p class="assistant-desc">Conteúdos devocionais.</p><a href="https://chatgpt.com/g/g-68c0182e79008191b3584a34cbbb694e-devocional-cafe-com-deus-pai" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🚁</div><h4>Legislação de Drones</h4><p class="assistant-desc">Normas para drones Brasil.</p><a href="https://chatgpt.com/g/g-68bb22c181288191aea69b5e722e965e-legislacao-de-drones-brasil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🎨</div><h4>VEO-3 Prompts</h4><p class="assistant-desc">Gerador de prompts IA.</p><a href="https://chatgpt.com/g/g-68b731b7c5948191bea525df7a1b1051-veo-3-assistente-gerador-de-prompts" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🏠</div><h4>Lei do Inquilinato</h4><p class="assistant-desc">Direitos locatícios Brasil.</p><a href="https://chatgpt.com/g/g-688f7529e25081919e17e442f36bf1ed-lei-do-inquilinato-lei-8-245-91-brasil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🚗</div><h4>PSA/SMEG Peugeot</h4><p class="assistant-desc">Sistemas automotivos.</p><a href="https://chatgpt.com/g/g-687008ae50a48191bad0825ca010b93b-consultor-psa-smeg-peugeot-citroen-ds-e-opel" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">⚙️</div><h4>Engenheiro de Prompt</h4><p class="assistant-desc">Otimização de prompts.</p><a href="https://chatgpt.com/g/g-6867da51e3908191aadcd45d1652a7e7-engenheiro-de-prompt-ia" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">💰</div><h4>Consultor Investimentos</h4><p class="assistant-desc">Estratégias de investimento.</p><a href="https://chatgpt.com/g/g-68522b7dfe4c8191821410928b5e3260-consultor-investimentos" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🔧</div><h4>PSOffice API</h4><p class="assistant-desc">Integração APIs PSOffice.</p><a href="https://chatgpt.com/g/g-68431d7730cc81918c697564fcf0f251-especialista-psoffice-api" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">💬</div><h4>Palavras de Ana Suy</h4><p class="assistant-desc">Conteúdos motivacionais.</p><a href="https://chatgpt.com/g/g-6839a4ac7ce8819183d2dce49b44f920-palavras-de-ana-suy" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🛡️</div><h4>Loovi Seguros</h4><p class="assistant-desc">Consultoria em seguros.</p><a href="https://chatgpt.com/g/g-6835fa1178d48191bbd7e4e02d05f1f3-suelen-rocha-loovi-seguros" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">👩‍⚕️</div><h4>Ketlin Antunes PSC</h4><p class="assistant-desc">Assistente área de saúde.</p><a href="https://chatgpt.com/g/g-6833a1387420819181cddc16e1494172-ketlin-antunes-psc" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🏦</div><h4>K8 Fintech</h4><p class="assistant-desc">APIs financeiras K8.</p><a href="https://chatgpt.com/g/g-67ca2be69f5c81919052b26ec9bae00b-k8-fintech-auxilio-com-api-s" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card"><div class="assistant-icon">🏗️</div><h4>Reforma Tributária</h4><p class="assistant-desc">Construção civil.</p><a href="https://chatgpt.com/g/g-67f444c609808191996b757a5a2d2757-consultora-reforma-tributaria-na-construcao-civil" target="_blank" class="assistant-link">Acessar Aqui</a></div>
-        <div class="assistant-card">
-          <div class="assistant-icon">🤖</div>
-          <h4>Assistente Genérico</h4>
-          <p class="assistant-desc">Atendimento geral e suporte.</p>
-          <a href="#" target="_blank" class="assistant-link"><i class="fas fa-external-link-alt"></i> Acessar</a>
+      <!-- Vendas & Marketing -->
+      <div class="fade-up delay-100">
+        <h3 class="group-title">Vendas & Marketing</h3>
+        <div class="assistants-grid">
+          <div class="assistant-card">
+            <div class="assistant-icon">🎯</div>
+            <h4>Gerador de ICP</h4>
+            <p class="assistant-desc">Identifica segmentos rentáveis e critérios do cliente ideal para priorizar
+              prospecção e aumentar conversões.</p>
+            <a href="https://chatgpt.com/g/g-68f82b18e1b081918ab7d022678b34dc-gerador-de-perfil-do-cliente-ideal-icp"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">💼</div>
+            <h4>LinkedIn Prompt Mestre</h4>
+            <p class="assistant-desc">Gera posts, comentários e mensagens que engajam e atraem leads qualificados no
+              LinkedIn.</p>
+            <a href="https://chatgpt.com/g/g-68df02bc6e4081919960f8f0453450e3-assistente-linkedin-prompt-mestre"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🏷️</div>
+            <h4>Nome Perfeito IA</h4>
+            <p class="assistant-desc">Cria e avalia nomes com significado, sonoridade e disponibilidade para marcas e
+              produtos.</p>
+            <a href="https://chatgpt.com/g/g-68f7f4fe12e081918ab85d427b3453fc-nome-perfeito-ia-consultor-significado-de-nomes"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🎭</div>
+            <h4>Simulador Persona Virtual</h4>
+            <p class="assistant-desc">Testa propostas e jornadas com personas simuladas para reduzir risco e melhorar
+              aderência.</p>
+            <a href="https://chatgpt.com/g/g-68d6954da8dc819196157469bfd0f3b7-simulador-persona-virtual" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🎨</div>
+            <h4>VEO-3 Prompts</h4>
+            <p class="assistant-desc">Constrói prompts prontos para criativos e campanhas, acelerando a produção de
+              conteúdo.</p>
+            <a href="https://chatgpt.com/g/g-68b731b7c5948191bea525df7a1b1051-veo-3-assistente-gerador-de-prompts"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
         </div>
+      </div>
 
-        <div class="assistant-card">
-          <div class="assistant-icon">⚖️</div>
-          <h4>Leis Trabalhistas</h4>
-          <p class="assistant-desc">Consultas sobre CLT/Lei Trabalhista.</p>
-          <a href="#" target="_blank" class="assistant-link"><i class="fas fa-external-link-alt"></i> Acessar</a>
+      <!-- Operações & Automação -->
+      <div class="fade-up delay-100">
+        <h3 class="group-title">Operações & Automação</h3>
+        <div class="assistants-grid">
+          <div class="assistant-card">
+            <div class="assistant-icon">📊</div>
+            <h4>Bruxo do Excel</h4>
+            <p class="assistant-desc">Automatiza planilhas, consolida dados e cria dashboards para poupar horas
+              operacionais.</p>
+            <a href="https://chatgpt.com/g/g-68dbb44f52788191a269f4ca827a2dcd-bruxo-do-excel-bruno-alm" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🔧</div>
+            <h4>PSOffice API</h4>
+            <p class="assistant-desc">Integra sistemas via APIs, orquestra fluxos e elimina trabalho manual entre
+              plataformas.</p>
+            <a href="https://chatgpt.com/g/g-68431d7730cc81918c697564fcf0f251-especialista-psoffice-api" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">⚙️</div>
+            <h4>Engenheiro de Prompt</h4>
+            <p class="assistant-desc">Aprimora prompts e pipelines de IA para respostas mais úteis e consistentes.</p>
+            <a href="https://chatgpt.com/g/g-6867da51e3908191aadcd45d1652a7e7-engenheiro-de-prompt-ia" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
         </div>
+      </div>
 
-        <div class="assistant-card">
-          <div class="assistant-icon">📊</div>
-          <h4>Power Platform</h4>
-          <p class="assistant-desc">Suporte em Power Automate/Apps.</p>
-          <a href="#" target="_blank" class="assistant-link"><i class="fas fa-external-link-alt"></i> Acessar</a>
+      <!-- Compliance & Jurídico -->
+      <div class="fade-up delay-200">
+        <h3 class="group-title">Compliance & Jurídico</h3>
+        <div class="assistants-grid">
+          <div class="assistant-card">
+            <div class="assistant-icon">🛡️</div>
+            <h4>LGPD – Lei 13.709/2018</h4>
+            <p class="assistant-desc">Orienta bases legais, políticas e ajustes práticos para adequação à LGPD.</p>
+            <a href="https://chatgpt.com/g/g-68c9563ec7388191b0f91a7255f2f38f-lgpd-pergunte-tudo-sobre-a-lei-no-13-709-2018"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">⚖️</div>
+            <h4>CTB AI Jurídico</h4>
+            <p class="assistant-desc">Responde consultas do CTB com fundamentos e orienta recursos e defesas.</p>
+            <a href="https://chatgpt.com/g/g-68e52c57612c8191a922c869cce88dd4-ctb-ai-assistente-juridico-de-transito"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🚦</div>
+            <h4>ReguLAI Trânsito</h4>
+            <p class="assistant-desc">Verifica conformidade técnica, normas e fiscalização para operações de trânsito.
+            </p>
+            <a href="https://chatgpt.com/g/g-68e5439b9a748191bb6d5be03fee9ad0-regulai-fisc-de-transito-e-conformidade-tecnica"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🏛️</div>
+            <h4>CDC</h4>
+            <p class="assistant-desc">Esclarece direitos e obrigações em relações de consumo para prevenir litígios.</p>
+            <a href="https://chatgpt.com/g/g-68c8b6f26bec81918c3b485fa0c59fe8-cdc-codigo-de-defesa-do-consumidor-lei-no-8-078"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🏠</div>
+            <h4>Lei do Inquilinato</h4>
+            <p class="assistant-desc">Tira dúvidas de locação (contratos, garantias, prazos) com base na lei.</p>
+            <a href="https://chatgpt.com/g/g-688f7529e25081919e17e442f36bf1ed-lei-do-inquilinato-lei-8-245-91-brasil"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🚁</div>
+            <h4>Legislação de Drones</h4>
+            <p class="assistant-desc">Guia regras da ANAC/DECEA e boas práticas para voos em conformidade.</p>
+            <a href="https://chatgpt.com/g/g-68bb22c181288191aea69b5e722e965e-legislacao-de-drones-brasil"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
         </div>
+      </div>
 
-        <div class="assistant-card">
-          <div class="assistant-icon">🔒</div>
-          <h4>LGPD Compliance</h4>
-          <p class="assistant-desc">Boas práticas e conformidade.</p>
-          <a href="#" target="_blank" class="assistant-link"><i class="fas fa-external-link-alt"></i> Acessar</a>
+      <!-- Setores Específicos -->
+      <div class="fade-up delay-200">
+        <h3 class="group-title">Setores Específicos</h3>
+        <div class="assistants-grid">
+          <div class="assistant-card">
+            <div class="assistant-icon">🏗️</div>
+            <h4>Reforma Tributária</h4>
+            <p class="assistant-desc">Explica impactos da reforma na construção civil e sugere adequações fiscais.</p>
+            <a href="https://chatgpt.com/g/g-67f444c609808191996b757a5a2d2757-consultora-reforma-tributaria-na-construcao-civil"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🚗</div>
+            <h4>PSA/SMEG Peugeot</h4>
+            <p class="assistant-desc">Apoia diagnóstico e configuração de sistemas PSA/SMEG em veículos.</p>
+            <a href="https://chatgpt.com/g/g-687008ae50a48191bad0825ca010b93b-consultor-psa-smeg-peugeot-citroen-ds-e-opel"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🏨</div>
+            <h4>Assistente Luggo Rebouças</h4>
+            <p class="assistant-desc">Atende hóspedes, responde dúvidas e agiliza rotinas operacionais do hotel.</p>
+            <a href="https://chatgpt.com/g/g-68deb87d1d1c81919b516c51971eec9d-assistente-luggo-reboucas" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">👩‍⚕️</div>
+            <h4>Ketlin Antunes PSC</h4>
+            <p class="assistant-desc">Oferece suporte administrativo e informativo para serviços de saúde.</p>
+            <a href="https://chatgpt.com/g/g-6833a1387420819181cddc16e1494172-ketlin-antunes-psc" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
         </div>
+      </div>
 
-        <!-- Adicione mais cartões abaixo seguindo o mesmo padrão -->
+      <!-- Diversos -->
+      <div class="fade-up delay-200">
+        <h3 class="group-title">Diversos</h3>
+        <div class="assistants-grid">
+          <div class="assistant-card">
+            <div class="assistant-icon">🤝</div>
+            <h4>Como Fazer Amigos IA</h4>
+            <p class="assistant-desc">Sugere abordagens de comunicação que fortalecem relações e influência.</p>
+            <a href="https://chatgpt.com/g/g-68dbf1904dc0819187e46ce793395a27-como-fazer-amigos-e-influenciar-pessoas-ia"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">💬</div>
+            <h4>Palavras de Ana Suy</h4>
+            <p class="assistant-desc">Entrega reflexões curtas para foco, clareza e bem‑estar no dia.</p>
+            <a href="https://chatgpt.com/g/g-6839a4ac7ce8819183d2dce49b44f920-palavras-de-ana-suy" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🙏</div>
+            <h4>Café com Deus Pai</h4>
+            <p class="assistant-desc">Traz devocionais diários para fortalecer fé e propósito.</p>
+            <a href="https://chatgpt.com/g/g-68c0182e79008191b3584a34cbbb694e-devocional-cafe-com-deus-pai"
+              target="_blank" class="assistant-link">Acessar Aqui</a>
+          </div>
+          <div class="assistant-card">
+            <div class="assistant-icon">🌙</div>
+            <h4>Interpretador de Sonhos</h4>
+            <p class="assistant-desc">Analisa símbolos e narrativas para gerar insights pessoais práticos.</p>
+            <a href="https://chatgpt.com/g/g-68def65297c081918f7cd76b86c38c0b-interpretador-de-sonhos" target="_blank"
+              class="assistant-link">Acessar Aqui</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer style="padding:40px 0;border-top:1px solid var(--border-glow);background:rgba(26,31,53,.35)">
-    <div class="container" style="text-align:center;color:var(--text-gray)">
-      <p>© 2025 Mlk DataFlow - Portfólio de Assistentes IA</p>
+  <!-- Footer -->
+  <footer style="padding: 60px 0; background: var(--bg-primary); border-top: 1px solid var(--border-subtle);">
+    <div class="container"
+      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span class="nav-brand" style="margin-bottom: 8px; display: block;">Mlk DataFlow</span>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">© 2026 Mlk DataFlow Solutions.</p>
+      </div>
+      <div class="nav-links">
+        <a href="https://www.linkedin.com/in/diego-ozorio-antunes/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/MadCrow69" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:diego.antunes@mlkdataflow.com.br"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
   </footer>
+
+  <!-- Contact Floating Action -->
+  <div class="contact-bar"
+    style="position: fixed; bottom: 32px; right: 32px; display: flex; flex-direction: column; gap: 12px; z-index: 100;">
+    <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
   <script>
-    // Sistema de Partículas - Função genérica
-    function createParticleSystem(canvasId, particleColor, lineColor){
-      const canvas=document.getElementById(canvasId); if(!canvas) return;
-      const ctx=canvas.getContext('2d');
-      const section=document.body;
-      function resize(){canvas.width=section.clientWidth; canvas.height=section.clientHeight}
-      resize();
-      const particles=[]; const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const particleCount=prefersReduced?20:60; const maxDistance=prefersReduced?80:120;
-      class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-.5)*.5;this.vy=(Math.random()-.5)*.5;this.radius=Math.random()*2+1}
-        update(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width) this.vx=-this.vx; if(this.y<0||this.y>canvas.height) this.vy=-this.vy}
-        draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=particleColor; ctx.fill();}}
-      for(let i=0;i<particleCount;i++) particles.push(new Particle());
-      function connect(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x; const dy=particles[i].y-particles[j].y; const d=Math.sqrt(dx*dx+dy*dy); if(d<maxDistance){const opacity=.2*(1-d/maxDistance); ctx.beginPath(); ctx.strokeStyle=lineColor.replace('OPACITY',opacity); ctx.lineWidth=1; ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke();}}}}
-      function animate(){ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update(); p.draw()}); connect(); requestAnimationFrame(animate)}
-      animate();
-      window.addEventListener('resize',resize);
+    // Simple Intersection Observer for Fade Up animation (Shared)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    });
+
+    // Add fade-up class to cards
+    document.querySelectorAll('.assistant-card, .section-header, .page-hero div').forEach(el => {
+      el.classList.add('fade-up');
+    });
+
+    // Mobile Toggle Logic
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+
+        // Toggle Icon
+        const icon = navToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // Close menu on link click
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          const icon = navToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
     }
-    // Inicializar partículas no fundo
-    createParticleSystem('particles-bg','rgba(255,255,255,0.5)','rgba(255,255,255,OPACITY)');
-  </script>
-  <script>
-    (function(){
-      function setupMobileNav(){
-        const navbar=document.querySelector('.navbar');
-        const toggle=document.querySelector('.nav-toggle');
-        const menu=document.getElementById('menu');
-        if(!navbar || !toggle || toggle.dataset.bound==='1') return;
-        toggle.dataset.bound='1';
-        const links=(menu?menu.querySelectorAll('a'):document.querySelectorAll('.nav-links a'))||[];
-        toggle.addEventListener('click',()=>{
-          const open=navbar.classList.toggle('open');
-          if(menu){ menu.classList.toggle('active',open); menu.style.display=open?'flex':'none'; }
-          toggle.setAttribute('aria-expanded',String(open));
-        });
-        links.forEach(a=>a.addEventListener('click',()=>{
-          if(navbar.classList.contains('open')){
-            navbar.classList.remove('open');
-            if(menu){ menu.classList.remove('active'); menu.style.display='none'; }
-            toggle.setAttribute('aria-expanded','false');
-          }
-        }));
-        window.addEventListener('resize',()=>{
-          if(window.innerWidth>900 && navbar.classList.contains('open')){
-            navbar.classList.remove('open');
-            if(menu){ menu.classList.remove('active'); menu.style.display=''; }
-            toggle.setAttribute('aria-expanded','false');
-          }
-        });
-      }
-      if(document.readyState==='loading'){
-        document.addEventListener('DOMContentLoaded',setupMobileNav);
-      }else{ setupMobileNav(); }
-    })();
   </script>
 </body>
+
 </html>
